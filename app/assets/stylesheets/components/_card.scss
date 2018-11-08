@@ -1,0 +1,37 @@
+.card-collection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card {
+  overflow: hidden;
+  width: 360px;
+  height: 220px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  color: $text-lite;
+  transition: all 150ms;
+  display: flex;
+  align-items: flex-end;
+  .card-text {
+    color: $text-lite;
+  }
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px $primary;
+    .card-text {
+      color: $text-lite;
+    }
+  }
+}
+
+.info-card-border-left {
+  border-left: 5px solid $primary;
+}
+.info-card-border-right {
+  border-right: 5px solid $primary;
+}

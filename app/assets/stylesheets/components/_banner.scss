@@ -1,0 +1,11 @@
+.banner {
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  color: $text-lite;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 30px;
+}

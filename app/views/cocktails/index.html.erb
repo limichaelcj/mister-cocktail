@@ -1,0 +1,12 @@
+<h1>Cocktails</h1>
+<hr>
+<ul class="card-collection">
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail), class: "card", style: "background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{cocktail.image_url})" do %>
+    <div class="card-text">
+      <h3><%= cocktail.name %></h3>
+      <p><%= cocktail.description %></p>
+    </div>
+    <% end %>
+  <% end %>
+</ul>

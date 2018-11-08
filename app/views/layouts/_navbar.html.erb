@@ -1,0 +1,12 @@
+<div class="navbar">
+  <div class="container" style="height: 100%;">
+    <div class="navbar-container">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", height: 50 %>
+      <% end %>
+
+      <%= link_to "Cocktails", cocktails_path, class: "navbar-item" %>
+      <%= link_to "New", new_cocktail_path, class: "navbar-item" %>
+    </div>
+  </div>
+</div>

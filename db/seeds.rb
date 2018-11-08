@@ -5,10 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
+require 'faker'
 
-ingredients = [
-  'seltzer', 'cola', 'cranberry juice', 'mint leaves',
-  'whiskey', 'gin', 'vodka', 'white rum', 'tequila', 'cointreau', 'brandy', 'champagne',
-  'cherries', 'lemon', 'lime', 'olives', 'ice'
-]
+ingredients_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
+ingredients_data = JSON.parse(open(ingredients_url).read)
+
+puts "Seeding database..."
+
+puts "Adding common ingredients"
+
+# preset ingredients
+ingredients_data['drinks'].each do |item|
+  Ingredient.create(name: item['strIngredient1'])
+end
+
+puts "Faking cocktails and doses..."
+
+rand(6..10).times do
+  cocktail = Cocktail.create(name: Faker::Coffee.blend_name,
+                             description: Faker::Lovecraft.sentence,
+                             image_url: 'https://source.unsplash.com/collection/1990254')
+  Ingredient.all.sample(rand(3..6)).each do |ingredient|
+    dose = Dose.create(cocktail: cocktail,
+                       description: Faker::Measurement.volume,
+                       ingredient: ingredient)
+  end
+end
+
+puts "Seeding complete."
