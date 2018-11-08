@@ -4,6 +4,7 @@ body {
   .body-container {
     background-color: rgba(230,230,230,0.9);
     min-height: calc(100vh - 70px);
+    padding: 0;
     padding-bottom: 100px;
   }
 }
@@ -60,8 +61,10 @@ a:visited {
 .text-padding {
   padding: 15px 30px;
 }
-
-.align-right {
+.text-center {
+  text-align: center;
+}
+.text-right {
   text-align: right;
 }
 
