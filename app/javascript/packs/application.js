@@ -10,3 +10,7 @@
 @import 'bootstrap';
 
 console.log('Hello World from Webpacker')
+
+document.getElementById('mix').addEventListener('click', () => {
+  alert('This needs to be programmed!')
+});

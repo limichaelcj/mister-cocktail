@@ -16,18 +16,24 @@
       <hr>
       <ul style="padding-left:20px;font-size:1.2em;margin-bottom:20px">
         <% @cocktail.doses.each do |dose| %>
-          <li class="line-height-tall">
+          <li class="ingredient-entry line-height-tall">
             <div class="row">
               <div class="col-xs-6 text-right">
                 <strong><%= dose.ingredient.name %></strong>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6 flex-space-between">
                 <span><%= dose.description %></span>
+                <div class="ingredient-delete">
+                  <i class="fas fa-trash-alt"></i>
+                </div>
               </div>
             </div>
           </li>
         <% end %>
       </ul>
+      <div class="text-center">
+        <button id="mix" class="btn btn-primary">Mix!</button>
+      </div>
     </div>
   </div>
 </div>

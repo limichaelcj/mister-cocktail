@@ -1,3 +1,20 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ingredient-entry {
+  transition: all 150ms;
+  position: relative;
+  i {
+    font-size: inherit;
+  }
+  .ingredient-delete {
+    opacity: hidden;
+    color: $primary;
+  }
+  &:hover {
+    border: 5px solid $primary;
+    .ingredient-delete {
+      opacity: 1;
+    }
+  }
+}

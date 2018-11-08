@@ -1,5 +1,8 @@
+require 'open-uri'
+require 'net/http'
+
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: %i[show edit]
+  before_action :find_cocktail, only: %i[show edit update]
 
   def index
     @cocktails = Cocktail.all
@@ -25,6 +28,11 @@ class CocktailsController < ApplicationController
   end
 
   def update
+    if @cocktail.update(strong_params)
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :edit
+    end
   end
 
   private
@@ -34,6 +42,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :description, :image_url)
   end
 end

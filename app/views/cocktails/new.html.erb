@@ -3,12 +3,7 @@
     <div class="col-sm-8 col-sm-offset-">
       <h1>New Cocktail</h1>
       <hr>
-      <%= simple_form_for @cocktail do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :image_url, label: "Image" %>
-        <%= f.submit class: 'btn btn-primary', style: 'margin-top:30px;' %>
-      <% end %>
+      <%= render 'form' %>
     </div>
   </div>
 </div>
