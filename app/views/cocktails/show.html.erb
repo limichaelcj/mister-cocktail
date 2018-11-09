@@ -14,7 +14,7 @@
     <div class="info-card info-card-border-left text-padding">
       <h3 class="text-center" style="margin-top:15px;">Ingredients</h3>
       <hr>
-      <ul style="padding-left:20px;font-size:1.2em;margin-bottom:20px">
+      <ul class="head-margin foot-margin text-indent">
         <% @cocktail.doses.each do |dose| %>
           <li class="ingredient-entry line-height-tall">
             <div class="row">
@@ -25,7 +25,7 @@
                 <span><%= dose.description %></span>
                 <div class="ingredient-delete">
                   <%= link_to dose_path(dose), method: 'delete', data: { confirm: "Remove #{dose.ingredient.name} dose from #{dose.cocktail.name}?" } do %>
-                    <i class="fas fa-trash-alt"></i>
+                    <i title="Remove dose" class="fas fa-trash-alt"></i>
                   <% end %>
                 </div>
               </div>
@@ -38,13 +38,13 @@
       <div id="dose-form" class="transition hidden-height">
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <div class="row flex-align">
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <%= f.association :ingredient %>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <%= f.input :description, label: "Amount" %>
             </div>
-            <div class="col-xs-1">
+            <div class="col-xs-2">
               <%= f.submit value: 'Mix!', class: 'btn btn-primary', style: 'margin-top:12px;' %>
             </div>
           </div>
@@ -52,19 +52,33 @@
       </div>
 
       <div class="text-center">
-        <button id="mix" class="btn btn-primary">Add</button>
+        <button id="mix" class="btn btn-primary" title="Add dose">Add</button>
       </div>
     </div>
   </div>
 </div>
 
+<div id="review-form" class="review-form text-padding">
+    <h3 class="text-center head-margin foot-margin">Leave a Review</h3>
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= f.input :rating, input_html: { min: 1, max: 5, required: true } %>
+        </div>
+      </div>
+      <%= f.input :comment, input_html: { required: true } %>
+      <div class="text-center">
+        <%= f.submit class: 'btn btn-primary head-margin foot-margin', value: 'Submit Review' %>
+      </div>
+    <% end %>
+  </div>
 <!-- reviews -->
 <div id="reviews" class="text-padding">
-  <h3 class="text-center">Reviews</h3>
+  <h3 class="text-center foot-margin">Reviews</h3>
   <% if @reviews.empty? %>
     <p class="text-center head-margin">This cocktail has no reviews yet.</p>
   <% else %>
-    <ul>
+    <ul id="reviews-list head-margin" class="scroll-list">
       <% @reviews.each do |review| %>
         <li class="entry transition">
           <ul class="list-inline">
@@ -80,4 +94,5 @@
       <% end %>
     </ul>
   <% end %>
+
 </div>

@@ -1,0 +1,7 @@
+.scroll-list {
+  max-height: 80vh;
+  overflow-y: scroll;
+  border-top: 3px solid $primary;
+  border-bottom: 3px solid $primary;
+  border-radius: 5px;
+}

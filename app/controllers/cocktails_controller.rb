@@ -10,7 +10,8 @@ class CocktailsController < ApplicationController
 
   def show
     @dose = Dose.new
-    @reviews = @cocktail.reviews
+    @reviews = @cocktail.reviews.reverse
+    @review = Review.new
   end
 
   def new
