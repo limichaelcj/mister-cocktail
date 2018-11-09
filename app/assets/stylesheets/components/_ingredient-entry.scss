@@ -11,6 +11,7 @@
   }
   &:hover {
     border-right: 5px solid $primary;
+    background-color: rgba(255,255,255,0.6);
     .ingredient-delete {
       opacity: 1;
     }

@@ -1,6 +1,7 @@
 body {
   margin-top: 70px;
   background-image: url('https://source.unsplash.com/0iFN35PjA4g');
+  padding: 0;
   .body-container {
     background-color: rgba(230,230,230,0.9);
     min-height: calc(100vh - 70px);
@@ -67,7 +68,14 @@ a:visited {
 .text-right {
   text-align: right;
 }
+.inline {
+  display: inline-block;
+}
 
+.flex-align {
+  display: flex;
+  align-items: center;
+}
 .flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -76,3 +84,18 @@ a:visited {
 .line-height-tall {
   line-height: 2em;
 }
+
+.transition {
+  transition: all 200ms;
+}
+
+.hidden-height {
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.height-line-tall {
+  height: 5em;
+}
+
