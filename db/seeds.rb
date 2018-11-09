@@ -25,9 +25,10 @@ end
 puts "Faking cocktails and doses..."
 
 rand(6..10).times do
-  cocktail = Cocktail.create(name: Faker::Coffee.blend_name,
-                             description: Faker::Lovecraft.sentence,
-                             image_url: 'https://source.unsplash.com/collection/1990254')
+  cocktail = Cocktail.new(name: Faker::Coffee.blend_name,
+                             description: Faker::Lovecraft.sentence)
+  cocktail.remote_photo_url = 'https://source.unsplash.com/collection/1990254'
+  cocktail.save!
   Ingredient.all.sample(rand(3..6)).each do |ingredient|
     dose = Dose.create(cocktail: cocktail,
                        description: Faker::Measurement.volume,

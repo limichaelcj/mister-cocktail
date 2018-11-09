@@ -1,4 +1,4 @@
-<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktail.image_url %>)">
+<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo, height: 1200, width: 2400, crop: :fill %>)">
   <h1 class="text-lite"><%= @cocktail.name %></h1>
 </div>
 <div class="row">
@@ -7,7 +7,7 @@
       <h4 class="line-height-tall"><em><%= @cocktail.description %></em></h4>
     </div>
     <div class="text-center">
-      <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail), class: 'btn btn-primary' %>
+      <%= link_to 'Edit info', edit_cocktail_path(@cocktail), class: 'btn btn-primary' %>
     </div>
   </div>
   <div class="col-md-7">
@@ -61,19 +61,23 @@
 <!-- reviews -->
 <div id="reviews" class="text-padding">
   <h3 class="text-center">Reviews</h3>
-  <ul>
-    <% @reviews.each do |review| %>
-      <li class="entry transition">
-        <ul class="list-inline">
-          <% review.rating.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="far fa-star"></i>
-          <% end %>
-        </ul>
-        <p><%= review.comment %></p>
-      </li>
-    <% end %>
-  </ul>
+  <% if @reviews.empty? %>
+    <p class="text-center head-margin">This cocktail has no reviews yet.</p>
+  <% else %>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li class="entry transition">
+          <ul class="list-inline">
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </ul>
+          <p><%= review.comment %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

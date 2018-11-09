@@ -65,3 +65,6 @@ gem 'simple_form'
 gem 'faker'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
+# for cloudinary :cipher error
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
+gem 'carrierwave', '~> 1.2'

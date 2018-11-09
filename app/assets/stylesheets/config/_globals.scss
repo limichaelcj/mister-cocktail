@@ -2,6 +2,7 @@ body {
   margin-top: 70px;
   background-image: url('https://source.unsplash.com/0iFN35PjA4g');
   padding: 0;
+  overflow-y: scroll;
   .body-container {
     background-color: rgba(230,230,230,0.9);
     min-height: calc(100vh - 70px);
@@ -83,4 +84,7 @@ a:visited {
 
 .line-height-tall {
   line-height: 2em;
+}
+.head-margin {
+  margin-top: 30px;
 }
