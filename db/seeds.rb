@@ -33,6 +33,11 @@ rand(6..10).times do
                        description: Faker::Measurement.volume,
                        ingredient: ingredient)
   end
+  rand(3..6).times do
+    Review.create(cocktail: cocktail,
+                  rating: rand(1..5),
+                  comment: Faker::HowIMetYourMother.quote)
+  end
 end
 
 puts "Seeding complete."

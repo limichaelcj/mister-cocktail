@@ -1,0 +1,17 @@
+.entry {
+  background-color: $white-trans;
+  display: block;
+  padding: 10px 20px;
+  margin: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px $shadow;
+  i {
+    color: $yellow;
+  }
+  & > * {
+    margin-bottom: 20px;
+  }
+  &:hover {
+    border-left: 3px solid $primary;
+  }
+}

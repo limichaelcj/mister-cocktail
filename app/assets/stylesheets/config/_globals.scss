@@ -84,18 +84,3 @@ a:visited {
 .line-height-tall {
   line-height: 2em;
 }
-
-.transition {
-  transition: all 200ms;
-}
-
-.hidden-height {
-  height: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.height-line-tall {
-  height: 5em;
-}
-

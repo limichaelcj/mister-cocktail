@@ -57,3 +57,23 @@
     </div>
   </div>
 </div>
+
+<!-- reviews -->
+<div id="reviews" class="text-padding">
+  <h3 class="text-center">Reviews</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li class="entry transition">
+        <ul class="list-inline">
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </ul>
+        <p><%= review.comment %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
